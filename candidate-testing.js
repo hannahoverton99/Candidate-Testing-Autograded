@@ -34,9 +34,16 @@ function askQuestion() {
     let candidateAnswers1=[];
     candidateAnswers1= input.question(questions[i]);
     candidateAnswers.push(candidateAnswers1);
+  }
+  return candidateAnswers;    
 }
-return candidateAnswers;
-}
+
+
+//if (typeof candidateAnswers1 === "number"){
+ // return String(Number(candidateAnswers).toUpperCase());
+//}else{
+ // return String(candidateAnswers).toUpperCase();
+//}
 
 function gradeQuiz(candidateAnswers) {
 // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
@@ -44,13 +51,31 @@ let response = '';
 for (let i = 0; i < questions.length; i++){
   response += `\nYour answer was: ${candidateAnswers[i]}. \nThe correct answer was: ${correctAnswers[i]}.\n`
 }
-console.log(response);
+console.log(response); 
 
+//******************/
+ //TODO 3.2 use this variable to calculate the candidates score.
+let numCorrect=5
+let totalNumCorrect= 0
+let numQuizQuestions=5
 
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
+for (let i = 0; i < numCorrect; i++){
+ if (String(candidateAnswers[i].toUpperCase()) === String(correctAnswers[i].toUpperCase())){
+  totalNumCorrect += 1;
+  }
+}
 
+  //console.log(totalNumCorrect);
 
-  return grade;
+let grade= (totalNumCorrect / numQuizQuestions) * 100
+  if (grade >= 80){
+   console.log(`You passed with ${grade}% !`);
+  } else{
+  console.log(`You failed with ${grade}% !`)
+  }
+ return grade;
+//}
+//console.log(grade);
 }
 
 function runProgram() {
