@@ -55,11 +55,10 @@ console.log(response);
 
 //******************/
  //TODO 3.2 use this variable to calculate the candidates score.
-let numCorrect=5
 let totalNumCorrect= 0
 let numQuizQuestions=5
 
-for (let i = 0; i < numCorrect; i++){
+for (let i = 0; i < questions.length; i++){
  if (String(candidateAnswers[i].toUpperCase()) === String(correctAnswers[i].toUpperCase())){
   totalNumCorrect += 1;
   }
